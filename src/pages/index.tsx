@@ -3,7 +3,7 @@ import Footer from "@/Components/Footer";
 import Icon from "@/Components/Icon";
 import SearchBar from "@/Components/SearchBar";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, ReactNode } from "react";
 import { useToast } from "@/Components/Hooks/UseToast";
 
 interface TApi {
@@ -12,7 +12,11 @@ interface TApi {
   body: string;
 }
 
-export default function Home() {
+type Props = {
+  children: ReactNode;
+};
+
+export default function Home({ children }: Props) {
   const [InfoApi, setInfoApi] = useState<TApi[]>([]);
   const [searchResults, setSearchResults] = useState<TApi[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -28,7 +32,7 @@ export default function Home() {
 
   const currentDisplayedCards = currentCards.slice(
     indexOfFirstCard,
-    indexOfLastCard,
+    indexOfLastCard
   );
   //clear inputs
 
@@ -39,7 +43,7 @@ export default function Home() {
     async function fetchApi() {
       try {
         const response = await axios.get(
-          "https://jsonplaceholder.typicode.com/posts",
+          "https://jsonplaceholder.typicode.com/posts"
         );
         setInfoApi(response.data);
       } catch (error) {
