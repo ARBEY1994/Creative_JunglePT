@@ -1,10 +1,10 @@
-import Card from "@/Components/Card";
-import Footer from "@/Components/Footer";
-import Icon from "@/Components/Icon";
-import SearchBar from "@/Components/SearchBar";
-import axios from "axios";
-import { useEffect, useState, ReactNode } from "react";
-import { useToast } from "@/Components/Hooks/UseToast";
+import Card from '@/Components/Card';
+import Footer from '@/Components/Footer';
+import Icon from '@/Components/Icon';
+import SearchBar from '@/Components/SearchBar';
+import axios from 'axios';
+import { useEffect, useState, ReactNode } from 'react';
+import { useToast } from '@/Components/Hooks/UseToast';
 
 interface TApi {
   id: number;
@@ -32,7 +32,7 @@ export default function Home({ children }: Props) {
 
   const currentDisplayedCards = currentCards.slice(
     indexOfFirstCard,
-    indexOfLastCard
+    indexOfLastCard,
   );
   //clear inputs
 
@@ -43,11 +43,11 @@ export default function Home({ children }: Props) {
     async function fetchApi() {
       try {
         const response = await axios.get(
-          "https://jsonplaceholder.typicode.com/posts"
+          'https://jsonplaceholder.typicode.com/posts',
         );
         setInfoApi(response.data);
       } catch (error) {
-        console.error("Error fetching posts:", error);
+        console.error('Error fetching posts:', error);
       }
     }
 
@@ -67,7 +67,7 @@ export default function Home({ children }: Props) {
       handleClearFields();
     }, 1000);
 
-    showSuccess("Removed successfully!");
+    showSuccess('Removed successfully!');
   };
 
   const handleSearchResults = (results: TApi[]) => {
@@ -99,7 +99,7 @@ export default function Home({ children }: Props) {
           </div>
         ))}
       </div>
-      <div className="flex justify-center  mt-4 text-[#1B6B93] font-bold">
+      <div className="flex justify-center  mt-16 text-[#1B6B93] font-bold">
         <button
           onClick={() => setCurrentPage(currentPage - 1)}
           disabled={currentPage === 1}
@@ -113,7 +113,7 @@ export default function Home({ children }: Props) {
           disabled={indexOfLastCard >= currentCards.length}
           className=" flex items-center"
         >
-          Next Page{" "}
+          Next Page{' '}
           <Icon iconName="chevron_right" className="text-[#1B6B93] pr-2" />
         </button>
       </div>

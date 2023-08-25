@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import Icon from "./Icon";
-import { useToast } from "./Hooks/UseToast";
+import React, { useEffect, useState } from 'react';
+import Icon from './Icon';
+import { useToast } from './Hooks/UseToast';
 
 interface TApi {
   id: number;
@@ -19,7 +19,7 @@ export default function SearchBar({
   onSearchResults,
   clearInput,
 }: SearchBarProps) {
-  const [searchValue, setSearchValue] = useState<string>("");
+  const [searchValue, setSearchValue] = useState<string>('');
   const { showSuccess, showError } = useToast();
 
   const handleSearch = async () => {
@@ -27,9 +27,9 @@ export default function SearchBar({
     const results = apiData.filter((item) => item.id === searchTerm);
 
     if (results.length === 0) {
-      showError("ID not fount");
+      showError('ID not fount');
     } else {
-      showSuccess("Search successful!");
+      showSuccess('Search successful!');
     }
 
     onSearchResults(results);
@@ -37,7 +37,7 @@ export default function SearchBar({
 
   useEffect(() => {
     if (clearInput) {
-      setSearchValue("");
+      setSearchValue('');
     }
   }, [clearInput]);
   return (
@@ -50,11 +50,13 @@ export default function SearchBar({
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
         />
-        <Icon
-          iconName="search"
-          className="text-[#4FC0D0] absolute mt-2 ml-[53%] lg:ml-[25%]  text-3xl cursor-pointer "
-          onClick={handleSearch}
-        />
+        <div className="absolute mt-2 ml-[60%] lg:ml-[25%]">
+          <Icon
+            iconName="search"
+            className="text-[#4FC0D0]   text-3xl cursor-pointer "
+            onClick={handleSearch}
+          />
+        </div>
       </div>
     </>
   );
