@@ -1,7 +1,7 @@
-import React from "react";
-import Image from "next/image";
-import FoodImage from "../../public/Images/Plate _of_food.png";
-import Icon from "./Icon";
+import React from 'react';
+import Image from 'next/image';
+import FoodImage from '../../public/Images/Plate _of_food.png';
+import Icon from './Icon';
 
 interface Tcard {
   Title: string;
@@ -17,8 +17,8 @@ export default function Card({ Title, Text, onDelete }: Tcard) {
         <div className="absolute left-[38%] top-[40%] ">
           <Image src={FoodImage} alt="" className="" />
         </div>
-        <div className="absolute left-[87%] top-[12%] text-white cursor-pointer">
-          <Icon iconName="cancel" className="text-4xl" onClick={onDelete} />
+        <div className="absolute left-[85%] top-[14%] text-white cursor-pointer ">
+          <Icon iconName="cancel" className="textIcon" onClick={onDelete} />
         </div>
       </div>
       <div className="mt-10">
@@ -32,6 +32,6 @@ export default function Card({ Title, Text, onDelete }: Tcard) {
 }
 
 Card.defaultProps = {
-  Title: "",
-  Text: "",
+  Title: '',
+  Text: '',
 };
