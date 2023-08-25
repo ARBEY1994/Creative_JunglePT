@@ -18,7 +18,11 @@ export default function Card({ Title, Text, onDelete }: Tcard) {
           <Image src={FoodImage} alt="" className="" />
         </div>
         <div className="absolute left-[85%] top-[14%] text-white cursor-pointer ">
-          <Icon iconName="cancel" className="textIcon" onClick={onDelete} />
+          <Icon
+            iconName="cancel"
+            onClick={onDelete}
+            style={{ fontSize: '32px' }}
+          />
         </div>
       </div>
       <div className="mt-10">

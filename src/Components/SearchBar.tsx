@@ -53,8 +53,9 @@ export default function SearchBar({
         <div className="absolute mt-2 ml-[60%] lg:ml-[25%]">
           <Icon
             iconName="search"
-            className="text-[#4FC0D0]   textIcon cursor-pointer "
+            className="text-[#4FC0D0]    cursor-pointer "
             onClick={handleSearch}
+            style={{ fontSize: '32px' }}
           />
         </div>
       </div>
