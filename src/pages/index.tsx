@@ -28,7 +28,7 @@ export default function Home() {
 
   const currentDisplayedCards = currentCards.slice(
     indexOfFirstCard,
-    indexOfLastCard
+    indexOfLastCard,
   );
   //clear inputs
 
@@ -39,7 +39,7 @@ export default function Home() {
     async function fetchApi() {
       try {
         const response = await axios.get(
-          "https://jsonplaceholder.typicode.com/posts"
+          "https://jsonplaceholder.typicode.com/posts",
         );
         setInfoApi(response.data);
       } catch (error) {
